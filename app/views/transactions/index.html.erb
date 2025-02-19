@@ -1,6 +1,20 @@
 <h1>KelloggCoin Ledger</h1>
 
 <!-- Step 1: List all transactions, starting with the ICO -->
+<h1> Transactions </h1>
+
+<%transactions = Transaction.all%>
+<%Names = Name.all%>
+
+<% for t in transactions %>
+<ul> 
+<% if defined?(t["from_user_id"]) %>
+<li><%=t["from_user_id"]%>: <%=t["amount"]%> </li>
+<% else %>
+<li>Initial coin offering: <%t["from_user_id"] %>
+<% end %>
+<% end %>
+</ul>
 
 <!-- Step 2: Calculate and display the balances -->
 
